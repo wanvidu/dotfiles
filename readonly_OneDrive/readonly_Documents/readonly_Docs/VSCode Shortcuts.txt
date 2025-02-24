@@ -1,0 +1,60 @@
+Alt + ↑ / ↓ - Move line up/down
+
+Alt + ← / → - Jump to next/previous curser position
+
+Ctrl + ← / → - Jump to next/previous word
+
+Ctrl + ↑ / ↓ - Move page without moving curser
+
+Ctrl + K + Q - Go to last edit location
+
+Ctrl + P - Open command pallet
+
+F8 - Go to next error or warning
+
+Shift + F8 - Go to previous error or warning
+
+Ctrl + Enter - Insert line below
+
+Ctrl + Shift + Enter - Insert line above
+
+Ctrl + Shift + \ - Jump to matching bracket
+
+Ctrl + ] / [ - Indent/outdent line
+
+Ctrl + . - Quick Fix
+
+Ctrl + Alt + ↑ / ↓ Insert curser above / below
+
+Ctrl + D - Select word under curser
+
+Shift + Alt + ← / → - Expande selection
+
+Shift + Alt + ↑ / ↓ - Duplicate lines
+
+Ctrl + L - Select line
+
+Ctrl + CLick - Go to definition
+
+F12 - Go to reference
+
+---
+
+# Command pallet shortcuts
+
+No prefix: - Go to File
+> - Run Command
+:{m}:{n} - Go to Line - :22:10 - Go ti line number 22, character 10
+@: - Go to Symbol in File
+# - Go to Symbol in Workspace
+% - Search workspace content
+
+---
+
+Ctrl + F - Find
+Ctrl + H - Replace
+F3 / Shift + F3 - Find next/previous
+Alt + Enter - Select all occurrences of Find match
+Ctrl + D - Add selection to next Find match
+Ctrl + U - Undo selection
+Ctrl + Shift + F - Search

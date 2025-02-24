@@ -1,0 +1,51 @@
+# ADB
+
+```sh
+adb devices -l
+```
+
+```sh
+adb kill-server
+adb start-server
+```
+
+```sh
+adb -e install helloWorld.apk
+adb -s <name> install helloWorld.apk
+```
+
+```sh
+# reversing host port 8000 to device port 8000
+adb reverse tcp:8000 tcp:8000
+adb reverse --remove-all
+```
+
+```sh
+# forwarding host port 8000 to device port 8000
+adb forward tcp:6100 tcp:8000
+adb forward --remove-all
+```
+
+```sh
+# Enable developer options and Wireless debugging on device
+# Find IP address, port number, and pairing code by selecting Pair device with pairing code
+adb pair 192.168.1.16:5555
+```
+
+```sh
+adb tcpip 5555
+adb connect 192.168.1.16:5555
+```
+
+```sh
+emulator -list-avds
+```
+
+Quick fix
+
+    In Android Studio, File -> Settings
+    Build, Execution, Deployment -> Debugger
+    Under Android Debug Bridge (adb), uncheck 'Enable adb mDNS for wireless debugging' and Apply
+    Wait some seconds for changes to take effect
+    Recheck 'adb mDNS for wireless debugging' and Apply
+    On the pop-up window from Windows Defender, allow network access to adb
