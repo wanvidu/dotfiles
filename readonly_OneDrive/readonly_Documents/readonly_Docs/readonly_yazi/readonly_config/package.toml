@@ -1,0 +1,7 @@
+[plugin]
+deps = []
+
+[[flavor.deps]]
+use = "tkapias/moonfly"
+rev = "395c686"
+hash = "ecbed28db3baa413585462a0b248027e"

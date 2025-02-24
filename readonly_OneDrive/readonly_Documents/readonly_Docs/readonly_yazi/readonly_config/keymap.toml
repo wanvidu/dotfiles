@@ -1,0 +1,10 @@
+[manager]
+prepend_keymap = [
+	{ on = "<Enter>",   run = "open --interactive", desc = "Open selected files" },
+]
+append_keymap = [
+	{ on = [ "g", "o" ],       run = "cd C:/Users/wanvi/OneDrive/Documents",   desc = "Goto ~/Documents" },
+	{ on = [ "g", "e" ],       run = "cd C:/dev",   desc = "Goto ~/Dev" },
+	# { on = [ "g", "o" ],       run = "cd ~/Documents",   desc = "Goto ~/Documents" },
+	# { on = [ "g", "e" ],       run = "cd ~/dev",   desc = "Goto ~/Dev" },
+]
