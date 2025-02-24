@@ -115,6 +115,8 @@ you can use a instead of i.
 
 cib - delete everything between ()
 
+. - replay previous action
+
 ~  Toggle case
 g~w - toggle case word
 g~it - toggle case inner text
@@ -541,6 +543,8 @@ chezmoi add ~/.bashrc
 
 chezmoi diff
 
+chezmoi re-add
+
 chezmoi -v apply
 
 chezmoi cd
@@ -556,6 +560,8 @@ winget install twpayne.chezmoi
 brew install chezmoi
 
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply wanvidu
+
+rsync -azp --delete ~/.zshrc ~/.nanorc ~/.config/nvim ~/.config/tmux ~/.config/yazi ~/.config/zellij  /mnt/c/Users/wanvi
 
 ---
 

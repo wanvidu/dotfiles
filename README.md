@@ -47,3 +47,7 @@ brew install chezmoi
 ```sh
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply wanvidu
 ```
+
+```sh
+rsync -azp --delete ~/.zshrc ~/.nanorc ~/.config/nvim ~/.config/tmux ~/.config/yazi ~/.config/zellij  /mnt/c/Users/wanvi
+```
