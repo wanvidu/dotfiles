@@ -128,9 +128,9 @@ zinit light romkatv/powerlevel10k
 
 alias x="zellij"
 
-alias b="batcat"
+alias b="bat"
 
-alias f="fzf --preview 'batcat --color=always --style=numbers --line-range=:500 {}' --height 70% --layout reverse --border"
+alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' --height 70% --layout reverse --border"
 
 alias ls="eza -lahum -F=auto --color=auto --icons=auto --group-directories-first --show-symlinks --time-style='+%Y-%m-%d %H:%M'"
 

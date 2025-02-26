@@ -104,16 +104,31 @@ LazyExtars - install extra plugins
 
 ---
 
-To select between the single quotes I usually do a vi' ("select inner single quotes").
+i / a - Insert mode / Append text before / after curser
+I / A - Insert mod line start/end
+o / O - Open up a line below / above and put into insert mod
+w / e / b - Jump to next / previous word
 
-Inside a parenthesis block, I use vib ("select inner block")
+0 - To move to the start of the line
+$ - To move to the end of the line
+^ / _ - Move to the first non-whitespace character in the line
+g_ - Move to the last non-whitespace character in the line
+A - Jump to the last character and switch to insert mode
 
-Inside a curly braces block you can use viB ("capital B")
+i <c-w> - delete a word
+i <c-u> - delete to the start of the line
 
-To make the selections "inclusive" (select also the quotes, parenthesis or braces) 
-you can use a instead of i.
+i <c-o><any normal mode command> - Run any normal mode cpmmand in insert mod 
 
-cib - delete everything between ()
+v i<char> / a<char> - select between given char
+v ib / ab - select inside ()
+v iB / aB - select inside {}
+
+di<char> / ci<char> - delete everything between given char
+dib / cib - delete everything between ()
+diB / ciB - delete everything between {}
+
+dgg / dG - delete everything
 
 . - replay previous action
 
@@ -141,6 +156,21 @@ select and g<c-a> / g<c-x> to increase multiple seperately
 in visual mode press o to change direction
 select between - vi[char] / va[char]
 
+* - search under cursor
+n - next match
+N - previous match
+
+:$s/<word>/<replace with>/gc
+
+\<{word}\> - Grep match whole word
+
+ZZ / :wqa / :xa - save and quit all
+:wq / :x - save and quit
+ZQ / :qa! - save and quit all
+:q! - save and quit
+
+
+---
 
 ## Edit multiple lines - https://youtu.be/RdyfT2dbt78?t=116
 V the select lines
@@ -148,6 +178,34 @@ i then do necessary changes then esc
 gv get last helighted text
 $ go to end of line
 A to append to end then esc
+
+---
+
+## Find and replace		https://youtu.be/vjzp_IpD61Y?t=717	https://youtu.be/AuXZA-xCv04
+
+n <Space>xQ                 <Cmd>Trouble qflist toggle<CR> Quickfix List (Trouble)
+n <Space>xq                 callback        Quickfix List          ⋮LazyVim/lua/lazyvim/config/keymaps.lua:106
+n <Space>sq                 callback        Quickfix List          ⋮LazyVim/…/editor/snacks_picker.lua:104
+n ]q                        callback        Next Trouble/Quickfix Item   ⋮LazyVim/lua/lazyvim/plugins/editor.lua:229
+n [q 
+ 
+grep word
+<c-q>
+:cdo s/<word>/<replace with>/gc
+ccl - close quickfix
+
+cfdo bd - close all buffers in quickfix
+
+---
+
+# NVim Tree
+
+space + e - Open File Explore
+a - Create new file
+d - Delete file
+/ - Search file
+I - will toggle visibility of hidden folders/files
+H - will toggle visibility of dotfiles (files/folders starting with a .)
 
 ---
 
@@ -192,75 +250,6 @@ C-a ;          go to the ‘last’ (previously used) pane
 
 ---
 
-* - search under cursor
-n - next match
-N - previous match
-
-:$s/<word>/<replace with>/gc
-
----
-
-## Find and replace		https://youtu.be/vjzp_IpD61Y?t=717	https://youtu.be/AuXZA-xCv04
-
-n <Space>xQ                 <Cmd>Trouble qflist toggle<CR> Quickfix List (Trouble)
-n <Space>xq                 callback        Quickfix List          ⋮LazyVim/lua/lazyvim/config/keymaps.lua:106
-n <Space>sq                 callback        Quickfix List          ⋮LazyVim/…/editor/snacks_picker.lua:104
-n ]q                        callback        Next Trouble/Quickfix Item   ⋮LazyVim/lua/lazyvim/plugins/editor.lua:229
-n [q 
- 
-grep word
-<c-q>
-:cdo s/<word>/<replace with>/gc
-ccl - close quickfix
-
-cfdo bd - close all buffers in quickfix
-
----
-
-# Quit
-
-* ZZ to save and quit, same as :x.
-
-* ZQ to quit, discarding changes, same as :q!.
-
-* :q or :quit to quit. It works when there's a single file being edited (no splits) 
-  and it's not modified.
-
-* :q! or :quit! to quit without saving the current file.
-  
-* :wq to write (save) the current file and quit. You can also use :wq! when the 
-  file is marked as read-only (though not always vi/Vim/NeoVim will be able to save it in that case.)
-
-* :x or :exit or :exit to write, if file was modified, and quit. This similar to 
-  :wq, but only try to save if there are changes to the file.
-
-* :qa or :quitall or :qall to quit all windows. This is roughly equivalent to using 
-  :q repeatedly in each one of them.
-
-* :qa! or :quitall! or :wall! to quit all windows discarding changes. This is akin 
-  to using :q! on each window.
-* :wqa, :wqall, :xa or :xall to save and quit all windows, similar to :wq (or :x) 
-  does for a single window.
-
-* :wqa! or :wqall! to force save and quit all windows, same as :wq! does.
-
-
-# NVim Tree
-
-space + e - Open File Explore
-
-a - Create new file
-
-d - Delete file
-
-/ - Search file
-
-I - will toggle visibility of hidden folders/files
-
-H - will toggle visibility of dotfiles (files/folders starting with a .)
-
-
----
 
 i / a - Insert mode / Append text before / after curser
 
@@ -813,6 +802,7 @@ fzf --version
 
 
 sudo apt install bat
+sudo apt install fd
 
 
 sudo apt update
