@@ -248,6 +248,13 @@ C-a ;          go to the ‘last’ (previously used) pane
 
 :list-keys
 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+nvim .config/tmux/tmux.conf
+
+<prefix>I - install plugins
+<prefix>r - reload tmux config
+
 ---
 
 
@@ -750,6 +757,8 @@ sudo apt install zsh -y
 
 chsh -s `which zsh`
 
+exec bash -l
+exec zsh -l
 
 wget -qO nvim.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
  

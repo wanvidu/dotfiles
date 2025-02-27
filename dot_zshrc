@@ -103,7 +103,6 @@ zinit snippet OMZ::plugins/history
 
 zinit snippet PZT::modules/helper/init.zsh
 
-zinit load zdharma-continuum/history-search-multi-word
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 
@@ -112,6 +111,9 @@ zinit light joshskidmore/zsh-fzf-history-search
 
 zinit load 'zsh-users/zsh-history-substring-search'
 zinit ice wait atload'_history_substring_search_config'
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # zinit ice as"command" from"gh-r" \
 #           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \

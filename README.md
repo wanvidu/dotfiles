@@ -49,5 +49,9 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply wanvidu
 ```
 
 ```sh
-rsync -azp --delete ~/.zshrc ~/.nanorc ~/.config/nvim ~/.config/tmux ~/.config/yazi ~/.config/zellij  /mnt/c/Users/wanvi
+rsync -razPv --delete ~/.zshrc ~/.nanorc
+```
+
+```sh
+rsync -razPv --delete ~/.config/nvim ~/.config/tmux ~/.config/yazi ~/.config/zellij  /mnt/c/Users/wanvi/.config
 ```
