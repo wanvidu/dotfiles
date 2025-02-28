@@ -130,11 +130,12 @@ zinit light romkatv/powerlevel10k
 
 alias x="zellij"
 
+alias cat="bat -p --paging=never"
 alias b="bat"
 
 alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' --height 70% --layout reverse --border"
 
-alias ls="eza -lahum -F=auto --color=auto --icons=auto --group-directories-first --show-symlinks --time-style='+%Y-%m-%d %H:%M'"
+alias ll="eza -lahum -F=auto --color=auto --icons=auto --group-directories-first --show-symlinks --time-style='+%Y-%m-%d %H:%M'"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

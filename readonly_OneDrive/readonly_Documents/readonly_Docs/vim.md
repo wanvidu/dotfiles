@@ -130,6 +130,8 @@ diB / ciB - delete everything between {}
 
 dgg / dG - delete everything
 
+:m +/-[n] - move line
+
 . - replay previous action
 
 ~  Toggle case
@@ -169,6 +171,17 @@ ZZ / :wqa / :xa - save and quit all
 ZQ / :qa! - save and quit all
 :q! - save and quit
 
+---
+
+## grep
+
+' - precise search
+^ - start with
+$ - end with
+!- inverse precise match
+
+^core go$ | rb$ | py$ - matches entries that start with core and end with 
+						either go, rb, or py
 
 ---
 

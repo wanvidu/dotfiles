@@ -49,7 +49,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply wanvidu
 ```
 
 ```sh
-rsync -razPv --delete ~/.zshrc ~/.nanorc
+rsync -razPv --delete ~/.zshrc ~/.nanorc /mnt/c/Users/wanvi
 ```
 
 ```sh
