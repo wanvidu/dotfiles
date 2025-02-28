@@ -258,6 +258,7 @@ C-a down
 C-a o          go to the next pane (cycle through all of them)
 C-a ;          go to the ‘last’ (previously used) pane
 
+<prefix>F - search commands
 
 :list-keys
 
