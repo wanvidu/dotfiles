@@ -204,10 +204,16 @@ n [q
  
 grep word
 <c-q>
-:cdo s/<word>/<replace with>/gc
+:cdo s/<word>/<replace>/gc
 ccl - close quickfix
 
+cfdo $s/<word>/<replace>/g | update | bd
+
 cfdo bd - close all buffers in quickfix
+
+cdo - action will be applied to every entry in the quickfix window.
+
+cfdo - action will be applied to each file in the quickfix window
 
 ---
 
@@ -762,6 +768,12 @@ rbenv install  -l
 rbenv install 3.3.0
 
 sudo gem install cocoapods
+
+---
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font
 
 ---
 

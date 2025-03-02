@@ -1,10 +1,39 @@
+# Reverse Search
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+$ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
+
 Invoke-Expression (&starship init powershell)
 
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 
-# oh-my-posh init pwsh | Invoke-Expression
+#---------------------------------------
+# https://github.com/kelleyma49/PSFzf
 
-# oh-my-posh init pwsh --config 'C:\Users\wanvi\AppData\Local\Programs\oh-my-posh\themes\night-owl.omp.json' | Invoke-Expression
+# Install-Module -Name PSFzf
+
+# replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+
+# 'Alt+c' - Search folders
+$commandOverride = [ScriptBlock]{ param($Location) Write-Host $Location }
+# pass your override to PSFzf:
+Set-PsFzfOption -AltCCommand $commandOverride
+
+# Tab completion 
+Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+
+# <command> **<Tab> for following items. 
+# 	git, Get-Service, Start-Service, Stop-Service, Get-Process, Start-Process
+
+# rigrep file content
+function prg {
+    Invoke-PsFzfRipgrep
+}
+
+#---------------------------------------
 
 function y {
     $tmp = [System.IO.Path]::GetTempFileName()
