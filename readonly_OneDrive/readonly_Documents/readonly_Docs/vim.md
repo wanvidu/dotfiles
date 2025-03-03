@@ -773,13 +773,14 @@ sudo gem install cocoapods
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font
+brew install ncdu nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font
 
 ---
 
 echo $0
 
 sudo apt install zsh -y
+sudo apt install ncdu -y
 
 chsh -s `which zsh`
 

@@ -7,4 +7,6 @@ append_keymap = [
 	# { on = [ "g", "e" ],       run = "cd C:/dev",   desc = "Goto ~/Dev" },
 	{ on = [ "g", "o" ],       run = "cd ~/Documents",   desc = "Goto ~/Documents" },
 	{ on = [ "g", "e" ],       run = "cd ~/dev",   desc = "Goto ~/Dev" },
+  { on = [ "g", "n" ],       run = "cd /etc/nginx/sites-available/",   desc = "Goto Nginx Sites" },
+  { on = [ "g", "w" ],       run = "cd /var/www/html/",   desc = "Goto html" },
 ]
