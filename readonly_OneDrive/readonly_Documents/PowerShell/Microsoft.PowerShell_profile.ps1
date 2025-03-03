@@ -1,3 +1,5 @@
+# Ctrl + l - clear screen
+
 # Reverse Search
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward

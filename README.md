@@ -53,5 +53,5 @@ rsync -razPv --delete ~/.zshrc ~/.nanorc /mnt/c/Users/wanvi
 ```
 
 ```sh
-rsync -razPv --delete ~/.config/nvim ~/.config/tmux ~/.config/yazi ~/.config/zellij  /mnt/c/Users/wanvi/.config
+rsync -razPv --delete --exclude="**/.git/*" --exclude="tmux/plugins/" ~/.config/nvim ~/.config/tmux ~/.config/yazi ~/.config/zellij  /mnt/c/Users/wanvi/.config
 ```
