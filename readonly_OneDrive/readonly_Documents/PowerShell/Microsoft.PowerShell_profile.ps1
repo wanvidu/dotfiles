@@ -47,8 +47,8 @@ function y {
     Remove-Item -Path $tmp
 }
 
-function lvim {
-    $Env:NVIM_APPNAME = 'nvim-distro\lazyvim'
+function cvim {
+    $Env:NVIM_APPNAME = 'nvim-distro\nvchad'
     nvim .
     $Env:NVIM_APPNAME = $null
 }
