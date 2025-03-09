@@ -16,23 +16,23 @@ In edit mode
 
 x - close buffer
 
-<leader>/ - toggle comment
+`<leader>/`- toggle comment
 
-<C-n> - nvimtree toggle window
-<leader>e - nvimtree focus window
+`<C-n>` - nvimtree toggle window
+`<leader>e` - nvimtree focus window
 
-<leader>fz - telescope find in current buffer
-<leader>ff - telescope find files
-<leader>fa - telescope find all files
+`<leader>fz` - telescope find in current buffer
+`<leader>ff` - telescope find files
+`<leader>fa` - telescope find all files
 
-<leader>fw - telescope live grep
-<leader>fo - telescope find oldfiles
+`<leader>fw` - telescope live grep
+`<leader>fo` - telescope find oldfiles
 
-<leader>h - terminal new horizontal term
+`<leader>h` - terminal new horizontal term
 
-<A-h> - terminal toggleable horizontal term
+`<A-h>` - terminal toggleable horizontal term
 
-<A-i> - terminal toggle floating term
+`<A-i>` - terminal toggle floating term
 
 <leader>th - telescope nvchad themes
 
@@ -84,9 +84,6 @@ gcO - add comment above
 <leader>ft - Terminal
 <C-/> - show, hide terminal
 
-
-
-
 <leader>gg - LazyGit
 <leader>gf - Git Current File History
 
@@ -101,6 +98,18 @@ leap.nvim - s{char}
 chechhealth
 
 LazyExtars - install extra plugins
+
+---
+
+### mini.surround
+
+add = "gsa", -- Add surrounding in Normal and Visual modes
+delete = "gsd", -- Delete surrounding
+find = "gsf", -- Find surrounding (to the right)
+find_left = "gsF", -- Find surrounding (to the left)
+highlight = "gsh", -- Highlight surrounding
+replace = "gsr", -- Replace surrounding
+update_n_lines = "gsn", -- Update `n_lines`
 
 ---
 
