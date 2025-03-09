@@ -1,11 +1,17 @@
+# Alt + f - Complete word
 # Ctrl + l - clear screen
+# F2 - toggle autosuggestion view
 
 # Reverse Search
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+# Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
-$ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
+Set-PSReadLineKeyHandler -Chord "Alt+f" -Function ForwardWord
+
+Set-PSReadLineOption -PredictionViewStyle ListView
+
+# $ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
 
 Invoke-Expression (&starship init powershell)
 

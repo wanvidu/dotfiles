@@ -623,6 +623,14 @@ rm -Force ~\AppData\Local\nvim-data
 
 ---
 
+## Zsh
+
+Alt + f - Complete word
+Ctrl + l - clear screen
+F2 - toggle autosuggestion view
+
+---
+
 # Yazi
 
 q - Quit the process
