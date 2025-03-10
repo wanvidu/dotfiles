@@ -1,47 +1,3 @@
-# NVchad
-
-In edit mode
-	Ctrl + b - move beginning of line
-	Ctrl + e - move end of line
-	Ctrl + h,j,k,l - move cursor around
-	
-In edit mode
-	Ctrl + h,j,k,l - move around panes
-	Ctrl + s - general save file
-	Ctrl + c - general copy whole file
-
-<leader>fm - general format file"
-
-<tab> / <S-tab> - switch between buffers
-
-x - close buffer
-
-`<leader>/`- toggle comment
-
-`<C-n>` - nvimtree toggle window
-`<leader>e` - nvimtree focus window
-
-`<leader>fz` - telescope find in current buffer
-`<leader>ff` - telescope find files
-`<leader>fa` - telescope find all files
-
-`<leader>fw` - telescope live grep
-`<leader>fo` - telescope find oldfiles
-
-`<leader>h` - terminal new horizontal term
-
-`<A-h>` - terminal toggleable horizontal term
-
-`<A-i>` - terminal toggle floating term
-
-<leader>th - telescope nvchad themes
-
-! - View posiable motion list
-
-theme - gatekeeper
-
----
-
 # LazyVim
 
 Ctrl + h,j,k,l - move around buffers
@@ -136,6 +92,11 @@ v iB / aB - select inside {}
 di<char> / ci<char> - delete everything between given char
 dib / cib - delete everything between ()
 diB / ciB - delete everything between {}
+
+f<char> / F<char> - jump to character
+
+<num>gg / <num>G - jump to line
+<num>+,j / <num>-,k - jump to line relative number
 
 dgg / dG - delete everything
 
@@ -942,13 +903,48 @@ sudo chmod 600 /home/whiz/.ssh/*
 
 ssh-add /home/whiz/.ssh/ultimate_pos_github
 
+---
 
-nano /home/whiz/.ssh/config
+# NVchad
 
-IdentityFile /home/whiz/.ssh/ultimate_pos_github
-IdentityFile /home/whiz/.ssh/whizchain_new_github
+In edit mode
+	Ctrl + b - move beginning of line
+	Ctrl + e - move end of line
+	Ctrl + h,j,k,l - move cursor around
+	
+In edit mode
+	Ctrl + h,j,k,l - move around panes
+	Ctrl + s - general save file
+	Ctrl + c - general copy whole file
 
-www.pos.whizchain.com
+<leader>fm - general format file"
 
-C:\WINDOWS\system32\wsl.exe --distribution-id {d39d9c88-9c75-40ee-80d5-b986d3186f97} --cd ~
+<tab> / <S-tab> - switch between buffers
 
+x - close buffer
+
+`<leader>/`- toggle comment
+
+`<C-n>` - nvimtree toggle window
+`<leader>e` - nvimtree focus window
+
+`<leader>fz` - telescope find in current buffer
+`<leader>ff` - telescope find files
+`<leader>fa` - telescope find all files
+
+`<leader>fw` - telescope live grep
+`<leader>fo` - telescope find oldfiles
+
+`<leader>h` - terminal new horizontal term
+
+`<A-h>` - terminal toggleable horizontal term
+
+`<A-i>` - terminal toggle floating term
+
+<leader>th - telescope nvchad themes
+
+! - View posiable motion list
+
+theme - gatekeeper
+
+---

@@ -77,6 +77,11 @@ function kvim {
     $Env:NVIM_APPNAME = $null
 }
 
+function which($name)
+{
+    Get-Command $name | Select-Object -ExpandProperty Definition
+}
+
 # =============================================================================
 #
 # Utility functions for zoxide.

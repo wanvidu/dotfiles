@@ -30,8 +30,8 @@ Insert::
 	Run('firefox.exe ' . URL)
 }
 
-; Shift + Home
-+Home::
+; Ctrl + Shift + Home
+^+Home::
 {
 	A_Clipboard := ""
 	Send('^c')
@@ -40,8 +40,8 @@ Insert::
 	Run('chrome.exe ' . A_Clipboard)
 }
 
-; Shift + PageUp
-+PgUp::
+; Ctrl + Shift + PageUp
+^+PgUp::
 {
 	A_Clipboard := ""
 	Send('^c')
