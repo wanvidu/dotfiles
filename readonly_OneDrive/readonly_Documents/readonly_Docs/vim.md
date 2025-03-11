@@ -170,7 +170,7 @@ n <Space>xQ                 <Cmd>Trouble qflist toggle<CR> Quickfix List (Troubl
 n <Space>xq                 callback        Quickfix List          ⋮LazyVim/lua/lazyvim/config/keymaps.lua:106
 n <Space>sq                 callback        Quickfix List          ⋮LazyVim/…/editor/snacks_picker.lua:104
 n ]q                        callback        Next Trouble/Quickfix Item   ⋮LazyVim/lua/lazyvim/plugins/editor.lua:229
-n [q 
+`n [q` 
  
 grep word
 <c-q>
@@ -199,6 +199,8 @@ H - will toggle visibility of dotfiles (files/folders starting with a .)
 ---
 
 # tmux
+
+shift + scroll up - to scroll up
 
 <prefix>:new - new session
 
@@ -730,6 +732,13 @@ Alt+\  - to go to the first line
 
 Alt+/  - to go to the last line
 
+ctrl + z - suspend
+
+jobs - list jobs
+
+fg - return to last suspended
+
+fg %<num> - return to given suspended
 
 ---
 
