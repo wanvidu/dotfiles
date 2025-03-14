@@ -1,6 +1,18 @@
-# Alt + f - Complete word
+# Ctrl + t - Search file and folders
+# Alt + c - Search folders
+
+# Ctrl + r - Search history
+
+# Alt + f - Complete suggestion word by word
 # Ctrl + l - clear screen
 # F2 - toggle autosuggestion view
+
+# prg - rigrep
+
+#----------------------------------------------
+
+Set-PSReadLineOption –HistoryNoDuplicates:$True
+Set-PSReadLineOption –MaximumHistoryCount:100000
 
 # Reverse Search
 # Set-PSReadLineOption -HistorySearchCursorMovesToEnd

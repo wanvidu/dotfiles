@@ -153,6 +153,10 @@ $ - end with
 ^core go$ | rb$ | py$ - matches entries that start with core and end with 
 						either go, rb, or py
 
+require("telescope.builtin").live_grep({search_dirs={vim.fn.expand("%:p")}})
+
+FzfLua
+
 ---
 
 ## Edit multiple lines - https://youtu.be/RdyfT2dbt78?t=116
@@ -760,7 +764,23 @@ sudo gem install cocoapods
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install ncdu nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font
+brew install ncdu nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font ouch nushell
+
+winget install CoreyButler.NVMforWindows 7zip.7zip AutoHotkey.AutoHotkey Git.Git `
+				Mozilla.Firefox Notepad++.Notepad++ Parsec.ParsecVDD RustDesk.RustDesk `
+				VideoLAN.VLC WinMerge.WinMerge AntibodySoftware.WizTree `
+				ApacheFriends.Xampp.8.2 SoftDeluxe.FreeDownloadManager Neovim.Neovim `
+				TheDocumentFoundation.LibreOffice wez.wezterm Oracle.MySQLWorkbench `
+				Nushell.Nushell PuTTY.PuTTY Starship.Starship Google.Chrome.EXE `
+				JetBrains.IntelliJIDEA.Community LibreWolf.LibreWolf Parsec.Parsec `
+				SoftMaker.FreeOffice.2024 Mobatek.MobaXterm Microsoft.PowerToys `
+				Microsoft.PowerShell Bruno.Bruno BurntSushi.ripgrep.MSVC `
+				GitHub.GitHubDesktop JesseDuffield.lazygit Postman.Postman `
+				Atlassian.Sourcetree Zoom.Zoom.EXE ajeetdsouza.zoxide junegunn.fzf `
+				sharkdp.bat sxyazi.yazi twpayne.chezmoi Microsoft.VisualStudioCode `
+				Microsoft.Teams Microsoft.WindowsTerminal
+				
+				
 
 ---
 
