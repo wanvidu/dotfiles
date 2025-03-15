@@ -58,3 +58,11 @@ Alt + Enter - Select all occurrences of Find match
 Ctrl + D - Add selection to next Find match
 Ctrl + U - Undo selection
 Ctrl + Shift + F - Search
+
+---
+
+## Themes
+
+Night Wolf - https://marketplace.visualstudio.com/items?itemName=MaoSantaella.night-wolf
+
+Night Owl Black - https://marketplace.visualstudio.com/items?itemName=thedavej.night-owl-black

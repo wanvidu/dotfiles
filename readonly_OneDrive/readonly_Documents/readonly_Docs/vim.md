@@ -55,6 +55,10 @@ chechhealth
 
 LazyExtars - install extra plugins
 
+~/.local/share/nvim/lazy/moonfly/lua/moonfly/init.lua
+	local black = "#000000"
+	
+	
 ---
 
 ### mini.surround
