@@ -11,7 +11,7 @@
 
 #----------------------------------------------
 
-Set-PSReadLineOption –HistoryNoDuplicates:$True
+Set-PSReadLineOption –HistoryNoDuplicates
 Set-PSReadLineOption –MaximumHistoryCount:100000
 
 # Reverse Search

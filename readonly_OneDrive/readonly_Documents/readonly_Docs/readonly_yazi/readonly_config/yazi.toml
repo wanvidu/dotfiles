@@ -21,8 +21,6 @@ extract = [
 
 [plugin]
 prepend_previewers = [
-	# { name = "*/", run = "eza-preview", for = "unix" },
-
 	# Archive previewer
 	{ mime = "application/*zip",            run = "ouch" },
 	{ mime = "application/x-tar",           run = "ouch" },

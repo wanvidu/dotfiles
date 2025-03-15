@@ -98,6 +98,9 @@ f<char> / F<char> - jump to character
 <num>gg / <num>G - jump to line
 <num>+,j / <num>-,k - jump to line relative number
 
+dt<char> / dt<char> - delete upto next/previous char
+df<char> / df<char> - delete including next/previous char
+
 dgg / dG - delete everything
 
 :m +/-[n] - move line
@@ -601,8 +604,13 @@ F2 - toggle autosuggestion view
 # Yazi
 
 q - Quit the process
-
 Q - Quit the process without outputting cwd-file
+
+ctrl + z - suspend
+
+ctrl + u/d - up, down half
+
+gg / G - go to top / bottom
 
 g - Goto
 
@@ -636,8 +644,25 @@ t	Create a new tab with CWD
 }	Swap current tab with next tab
 Ctrl + c	Close the current tab
 
+ctrl + a - select all
+ctrl + r - invert selection
+
+tab - file info
+
 z - zoxide
 Z - fzf
+
+- / _ - simlink
+
+f - find
+
+, - sort
+
+w - task show
+
+C - zip selection
+
+R - sudo command list
 
 ~ - Shortcut List
 
@@ -764,7 +789,7 @@ sudo gem install cocoapods
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install ncdu nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font ouch nushell
+brew install ncdu nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font ouch nushell sevenzip
 
 winget install CoreyButler.NVMforWindows 7zip.7zip AutoHotkey.AutoHotkey Git.Git `
 				Mozilla.Firefox Notepad++.Notepad++ Parsec.ParsecVDD RustDesk.RustDesk `
@@ -778,9 +803,25 @@ winget install CoreyButler.NVMforWindows 7zip.7zip AutoHotkey.AutoHotkey Git.Git
 				GitHub.GitHubDesktop JesseDuffield.lazygit Postman.Postman `
 				Atlassian.Sourcetree Zoom.Zoom.EXE ajeetdsouza.zoxide junegunn.fzf `
 				sharkdp.bat sxyazi.yazi twpayne.chezmoi Microsoft.VisualStudioCode `
-				Microsoft.Teams Microsoft.WindowsTerminal
-				
-				
+				Microsoft.Teams Microsoft.WindowsTerminal `
+				Devolutions.RemoteDesktopManager
+
+### Windows Programs
+
+flutter
+TrafficMonitor - https://github.com/zhongyang219/TrafficMonitor
+ouch - https://github.com/ouch-org/ouch
+AnyDesk
+TeamViewer
+Spotify
+Phone Link
+DBEngin - https://dbngin.com/
+FileZilla
+Android Studio
+Tor Browser
+RetroBat
+Rufus
+Ventoy
 
 ---
 
