@@ -13,7 +13,10 @@ append_keymap = [
   { on = [ "g", "n" ],       run = "cd /etc/nginx/sites-available/",   desc = "Goto Nginx Sites" },
   { on = [ "g", "w" ],       run = "cd /var/www/html/",   desc = "Goto html" },
 
-	{ on = "C",   run = "plugin ouch -- zip", desc = "Compress with ouch" },
+  { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
+  
+	{ on = [ "C", "a"],   run = "plugin compress ", desc = "Archive selected files" },
+	{ on = [ "C", "c" ],   run = "plugin ouch -- zip", desc = "Compress with ouch" },	
 
 	{ on = [ "c", "m" ], run = "plugin chmod",  desc = "Chmod on selected files" },
 

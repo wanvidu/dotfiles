@@ -8,7 +8,8 @@ append_keymap = [
 	# { on = [ "g", "o" ],       run = "cd ~/Documents",   desc = "Goto ~/Documents" },
 	# { on = [ "g", "e" ],       run = "cd ~/dev",   desc = "Goto ~/Dev" },
 
-	{ on = "C",   run = "plugin ouch -- zip", desc = "Compress with ouch" },
+	{ on = [ "C", "a"],   run = "plugin compress ", desc = "Archive selected files" },
+	{ on = [ "C", "c" ],   run = "plugin ouch -- zip", desc = "Compress with ouch" },
 
 	{ on = [ "c", "m" ], run = "plugin chmod",  desc = "Chmod on selected files" },
 

@@ -57,7 +57,8 @@ LazyExtars - install extra plugins
 
 ~/.local/share/nvim/lazy/moonfly/lua/moonfly/init.lua
 	local black = "#000000"
-	
+
+~\AppData\Local\nvim-data\lazy\moonfly\lua\moonfly	
 	
 ---
 
@@ -793,7 +794,7 @@ sudo gem install cocoapods
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install ncdu nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font ouch nushell sevenzip
+brew install zsh ncdu nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font ouch nushell sevenzip
 
 winget install CoreyButler.NVMforWindows 7zip.7zip AutoHotkey.AutoHotkey Git.Git `
 				Mozilla.Firefox Notepad++.Notepad++ Parsec.ParsecVDD RustDesk.RustDesk `
