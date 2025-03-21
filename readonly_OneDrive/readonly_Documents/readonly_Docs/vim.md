@@ -60,6 +60,14 @@ LazyExtars - install extra plugins
 
 ~\AppData\Local\nvim-data\lazy\moonfly\lua\moonfly	
 	
+Trash location 
+	~/.local/share/Trash/files	
+	
+	trash-list
+	trash-restore
+	
+	(crontab -l ; echo "@daily $(which trash-empty) 30") | crontab -
+	
 ---
 
 ### mini.surround
@@ -88,7 +96,7 @@ A - Jump to the last character and switch to insert mode
 i <c-w> - delete a word
 i <c-u> - delete to the start of the line
 
-i <c-o><any normal mode command> - Run any normal mode cpmmand in insert mod 
+i <c-o><any normal mode command> - Run any normal mode command in insert mod 
 
 v i<char> / a<char> - select between given char
 v ib / ab - select inside ()
@@ -794,7 +802,8 @@ sudo gem install cocoapods
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install zsh ncdu nvim yazi fd ripgrep fzf zoxide eza bat tmux zellij font-symbols-only-nerd-font ouch nushell sevenzip
+brew install zsh ncdu nvim yazi fd ripgrep fzf zoxide eza bat tmux \ 
+	zellij font-symbols-only-nerd-font ouch nushell sevenzip trash-cli
 
 winget install CoreyButler.NVMforWindows 7zip.7zip AutoHotkey.AutoHotkey Git.Git `
 				Mozilla.Firefox Notepad++.Notepad++ Parsec.ParsecVDD RustDesk.RustDesk `
