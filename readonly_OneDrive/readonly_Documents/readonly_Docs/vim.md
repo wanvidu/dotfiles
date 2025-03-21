@@ -93,26 +93,26 @@ $ - To move to the end of the line
 g_ - Move to the last non-whitespace character in the line
 A - Jump to the last character and switch to insert mode
 
-i <c-w> - delete a word
-i <c-u> - delete to the start of the line
-
 i <c-o><any normal mode command> - Run any normal mode command in insert mod 
 
 v i<char> / a<char> - select between given char
 v ib / ab - select inside ()
 v iB / aB - select inside {}
 
+f<char> / F<char> - jump to character
+
 di<char> / ci<char> - delete everything between given char
 dib / cib - delete everything between ()
 diB / ciB - delete everything between {}
 
-f<char> / F<char> - jump to character
+dt<char> / dt<char> - delete upto next/previous char
+df<char> / df<char> - delete including next/previous char
+
+daw : delete the word under the cursor    
+caw : delete the word under the cursor and put you in insert mode 
 
 <num>gg / <num>G - jump to line
 <num>+,j / <num>-,k - jump to line relative number
-
-dt<char> / dt<char> - delete upto next/previous char
-df<char> / df<char> - delete including next/previous char
 
 dgg / dG - delete everything
 
@@ -169,9 +169,21 @@ $ - end with
 ^core go$ | rb$ | py$ - matches entries that start with core and end with 
 						either go, rb, or py
 
-require("telescope.builtin").live_grep({search_dirs={vim.fn.expand("%:p")}})
+* - search under cursor
 
-FzfLua
+n / N - next/previous match
+
+---
+
+## grep current file
+
+FzfLua grep_curbuf
+
+' - precise search
+
+<c-q> - sent to quickfix
+
+shortcut - <leader>se
 
 ---
 
