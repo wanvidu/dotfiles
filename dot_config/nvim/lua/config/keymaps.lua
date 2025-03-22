@@ -3,3 +3,4 @@
 -- Add any additional keymaps here
 
 vim.keymap.set({ "n", "v" }, "<leader>se", "<cmd>FzfLua grep_curbuf<CR>", { desc = "Grep Current Buffer" })
+vim.keymap.set({ "n", "v" }, "<leader>sE", "<cmd>FzfLua resume<CR>", { desc = "Resume Previous FZF" })
