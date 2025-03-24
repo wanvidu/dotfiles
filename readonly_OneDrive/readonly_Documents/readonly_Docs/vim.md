@@ -233,40 +233,41 @@ H - will toggle visibility of dotfiles (files/folders starting with a .)
 # tmux
 
 shift + scroll up - to scroll up
+shift + mouse select - select 
 
 <prefix>:new - new session
 
 <prefix>$ - rename session
 
-C-a (          previous session
-C-a )          next session
-C-a L          ‘last’ (previously used) session
-C-a s          choose a session from a list
+<prefix>(          previous session
+<prefix>)          next session
+<prefix>L          ‘last’ (previously used) session
+<prefix>s          choose a session from a list
 
 <prefix>c - new window
 
 <prefix>, - rename window
 
-C-a &          kill the current window
+<prefix>&          kill the current window
 
-C-a 1 ...      switch to window 1, ..., 9, 0
-C-a 9
-C-a 0
-C-a p          previous window
-C-a n          next window
-C-a l          ‘last’ (previously used) window
-C-a w          choose window from a list
+<prefix>1 ...      switch to window 1, ..., 9, 0
+<prefix>9
+<prefix>0
+<prefix>p          previous window
+<prefix>n          next window
+<prefix>l          ‘last’ (previously used) window
+<prefix>w          choose window from a list
 
 
-C-a "          split vertically (top/bottom)
-C-a %          split horizontally (left/right)
+<prefix>"          split vertically (top/bottom)
+<prefix>%          split horizontally (left/right)
 
-C-a left       go to the next pane on the left
-C-a right      (or one of these other directions)
-C-a up
-C-a down
-C-a o          go to the next pane (cycle through all of them)
-C-a ;          go to the ‘last’ (previously used) pane
+<prefix>left       go to the next pane on the left
+<prefix>right      (or one of these other directions)
+<prefix>up
+<prefix>down
+<prefix>o          go to the next pane (cycle through all of them)
+<prefix>;          go to the ‘last’ (previously used) pane
 
 <prefix>F - search commands
 

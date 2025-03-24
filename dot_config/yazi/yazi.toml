@@ -7,7 +7,7 @@ linemode = "size"
 edit = [
 	{ run = 'notepad++ %*', desc = "Notepad++", for = "windows" },
 	{ run = 'notepad %*', desc = "Notepad", for = "windows" },
-  { run = 'nvim %*', block = true, desc = "nvim", for = "windows" },
+    { run = 'nvim %*', block = true, desc = "nvim", for = "windows" },
 	{ run = 'code %*',    orphan = true, desc = "code",           for = "windows" },
 	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
 	{ run = 'open -a TextEdit "$@"', desc = "TextEdit", for = "macos" },

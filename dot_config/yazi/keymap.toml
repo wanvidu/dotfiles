@@ -8,12 +8,12 @@ append_keymap = [
 
 	{ on = [ "g", "o" ],       run = "cd ~/Documents",   desc = "Goto ~/Documents" },
 	{ on = [ "g", "e" ],       run = "cd ~/dev",   desc = "Goto ~/Dev" },
-  { on = [ "g", "H" ],       run = "cd /home/whiz/",   desc = "Goto Home" },
-  { on = [ "g", "s" ],       run = "cd ~/.ssh/",   desc = "Goto SSH folder" },
-  { on = [ "g", "n" ],       run = "cd /etc/nginx/sites-available/",   desc = "Goto Nginx Sites" },
-  { on = [ "g", "w" ],       run = "cd /var/www/html/",   desc = "Goto html" },
+    { on = [ "g", "H" ],       run = "cd /home/whiz/",   desc = "Goto Home" },
+    { on = [ "g", "s" ],       run = "cd ~/.ssh/",   desc = "Goto SSH folder" },
+    { on = [ "g", "n" ],       run = "cd /etc/nginx/sites-available/",   desc = "Goto Nginx Sites" },
+    { on = [ "g", "w" ],       run = "cd /var/www/html/",   desc = "Goto html" },
 
-  { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
+    { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
   
 	{ on = [ "C", "a"],   run = "plugin compress ", desc = "Archive selected files" },
 	{ on = [ "C", "c" ],   run = "plugin ouch -- zip", desc = "Compress with ouch" },	
