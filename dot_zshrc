@@ -78,6 +78,8 @@ zinit snippet PZT::modules/helper/init.zsh
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light Aloxaf/fzf-tab
 
 zinit ice lucid wait'0'
 zinit light joshskidmore/zsh-fzf-history-search
@@ -101,6 +103,10 @@ alias b="bat"
 alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' --height 70% --layout reverse --border"
 
 alias ll="eza -lahum -F=auto --color=auto --icons=auto --group-directories-first --show-symlinks --time-style='+%Y-%m-%d %H:%M'"
+
+alias ls='ls --color'
+
+alias c='clear'
 
 eval "$(starship init zsh)"
 

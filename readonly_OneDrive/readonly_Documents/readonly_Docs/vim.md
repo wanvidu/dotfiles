@@ -177,6 +177,10 @@ n / N - next/previous match
 
 ## grep current file
 
+/ - search current buffer
+
+n / N - next/previous result
+
 FzfLua grep_curbuf
 
 ' - precise search

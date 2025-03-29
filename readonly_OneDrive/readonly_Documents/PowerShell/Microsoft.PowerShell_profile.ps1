@@ -7,6 +7,8 @@
 # Ctrl + l - clear screen
 # F2 - toggle autosuggestion view
 
+# c - clear
+
 # prg - rigrep
 
 #----------------------------------------------
@@ -93,6 +95,8 @@ function which($name)
 {
     Get-Command $name | Select-Object -ExpandProperty Definition
 }
+
+Set-Alias -Name c -Value clear
 
 # =============================================================================
 #
