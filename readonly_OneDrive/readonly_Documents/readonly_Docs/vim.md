@@ -623,6 +623,12 @@ rm -Force ~\AppData\Local\nvim-data
 
 ---
 
+## Nano
+
+Alt + Shift + # - toggle line number
+
+---
+
 ## Zsh
 
 Alt + f - Complete word
@@ -797,7 +803,16 @@ jobs - list jobs
 
 fg - return to last suspended
 
+bg - sent to background
+
+%<num> - bring job to forground
+
 fg %<num> - return to given suspended
+
+bg %<num> - send given precess to background
+
+kill %<num> - kill given precess
+
 
 ---
 
