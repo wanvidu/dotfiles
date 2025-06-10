@@ -11,9 +11,13 @@
 
 # prg - rigrep
 
+# History Path
+
+# C:\Users\wanvi\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+
 #----------------------------------------------
 
-Set-PSReadLineOption –HistoryNoDuplicates
+Set-PSReadLineOption –HistoryNoDuplicates:$True
 Set-PSReadLineOption –MaximumHistoryCount:100000
 
 # Reverse Search
