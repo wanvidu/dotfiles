@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 prepend_keymap = [
 	{ on = "<Enter>",   run = "open --interactive", desc = "Open selected files" },
 ]
@@ -7,6 +7,11 @@ append_keymap = [
 	{ on = [ "g", "e" ],       run = "cd C:/dev",   desc = "Goto ~/Dev" },
 	# { on = [ "g", "o" ],       run = "cd ~/Documents",   desc = "Goto ~/Documents" },
 	# { on = [ "g", "e" ],       run = "cd ~/dev",   desc = "Goto ~/Dev" },
+	#  { on = [ "g", "s" ],       run = "cd ~/.ssh/",   desc = "Goto SSH folder" },
+	#  { on = [ "g", "n" ],       run = "cd /etc/nginx/sites-available/",   desc = "Goto Nginx Sites" },
+	#  { on = [ "g", "w" ],       run = "cd /var/www/html/",   desc = "Goto html" },
+  
+  { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
 
 	{ on = [ "C", "a"],   run = "plugin compress ", desc = "Archive selected files" },
 	{ on = [ "C", "c" ],   run = "plugin ouch -- zip", desc = "Compress with ouch" },

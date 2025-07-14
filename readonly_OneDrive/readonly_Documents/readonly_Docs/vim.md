@@ -642,9 +642,9 @@ F2 - toggle autosuggestion view
 q - Quit the process
 Q - Quit the process without outputting cwd-file
 
-ctrl + z - suspend
-
 ctrl + u/d - up, down half
+
+K / J - Seek up / down 5 units in the preview
 
 gg / G - go to top / bottom
 
@@ -688,7 +688,11 @@ tab - file info
 z - zoxide
 Z - fzf
 
-- / _ - simlink
+- - Symlink the absolute path of yanked files
+
+_ - Symlink the relative path of yanked files
+
+Ctrl + - - Hardlink yanked files
 
 f - find
 
