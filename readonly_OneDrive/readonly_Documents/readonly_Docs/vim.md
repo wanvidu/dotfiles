@@ -745,6 +745,24 @@ function y() {
 }
 
 ---
+
+# Ranger
+
+g - move to
+
+a / A / F2 / cw - rename file
+
+zh - show hidden files
+
+m + <key> - add bookmark to current directory
+' - view bookmarks
+
+v / V / space - selection
+
+? - help
+
+
+---
 # Zoxide
 
 z
@@ -781,12 +799,6 @@ fzf --version
 
 ---
 
-## Zellij
-
-
-
----
-
 ## Bat
 
 sudo apt install bat
@@ -817,6 +829,9 @@ bg %<num> - send given precess to background
 
 kill %<num> - kill given precess
 
+---
+
+sudo apt -y install zsh neovim ranger yazi fd ripgrep fzf zoxide eza bat tmux
 
 ---
 
@@ -875,6 +890,7 @@ Ventoy
 
 ---
 
+lsb_release -a
 echo $0
 
 sudo apt install zsh -y
@@ -1015,13 +1031,34 @@ eval "$(ssh-agent -s)"
 
 ssh-add ~/.ssh/id_ed25519
 
-sudo chown -R user:user /home/whiz/.ssh
+sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
 
-sudo chmod 700 /home/whiz/.ssh
+sudo nginx -t
 
-sudo chmod 600 /home/whiz/.ssh/*
+sudo systemctl reload nginx
 
-ssh-add /home/whiz/.ssh/ultimate_pos_github
+sudo certbot --nginx -d example.com -d <www.example.com>
+
+composer install
+/usr/bin/php8.1 /usr/bin/composer install
+ 
+php artisan storage:link
+
+mkdir -p storage/framework/cache/data
+mkdir -p storage/framework/sessions
+mkdir -p storage/framework/views
+
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+php artisan route:clear
+composer dump-autoload
+
+sudo chown -R whiz:vpsusers /var/www/html/foodpoint_server/storage/
+
+sudo chmod -R g+rwx /var/www/html/foodpoint_server/storage/
+
+sudo chmod -R g+s /var/www/html/foodpoint_server/storage/
 
 ---
 
