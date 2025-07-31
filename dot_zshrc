@@ -1,3 +1,7 @@
+# Notes
+# * Run 'zinit cclear' on any zinit error
+#
+
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
@@ -105,6 +109,9 @@ alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
 alias ll="eza -lahum -F=auto --color=auto --icons=auto --group-directories-first --show-symlinks --time-style='+%Y-%m-%d %H:%M'"
 
 alias ls='ls -lha --color'
+
+alias r='source ranger ranger'
+alias rs='sudo ranger'
 
 alias c='clear'
 

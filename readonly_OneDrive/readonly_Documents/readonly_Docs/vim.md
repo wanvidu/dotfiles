@@ -748,6 +748,10 @@ function y() {
 
 # Ranger
 
+Z - zoxide
+
+Alt + f - fzf
+
 g - move to
 
 a / A / F2 / cw - rename file
@@ -758,6 +762,23 @@ m + <key> - add bookmark to current directory
 ' - view bookmarks
 
 v / V / space - selection
+
+Ctrl + n - Create new tab
+Ctrl + w / q - Close current tab
+Tab / shift + Tab - switch between tabs
+
+g for navigation and tabs
+r for :open_with command
+y for yank(copy)
+d for cut/delete
+p for paste
+o for sort
+c for rename
+. for filter_stack
+z for changing settings
+u for "undo"
+M for linemode
++, -, = for setting access rights to files
 
 ? - help
 
