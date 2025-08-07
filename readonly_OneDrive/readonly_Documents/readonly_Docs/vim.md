@@ -70,6 +70,20 @@ Trash location
 	
 ---
 
+### yazi.nvim
+
+<f1>: show the help menu
+<c-v>: open the selected file(s) in vertical splits
+<c-x>: open the selected file(s) in horizontal splits
+<c-t>: open the selected file(s) in new tabs
+<c-q>: send the selected file(s) to the quickfix list
+<c-s>: search in the current yazi directory using telescope's live_grep
+<c-g>: search and replace in the current yazi directory using grug-far
+<c-y>: copy the relative path of the selected file(s) to the clipboard information
+<tab>: make yazi jump to the open buffers in Neovim
+
+---
+
 ### mini.surround
 
 add = "gsa", -- Add surrounding in Normal and Visual modes
@@ -852,7 +866,9 @@ kill %<num> - kill given precess
 
 ---
 
-sudo apt -y install zsh neovim ranger yazi fd ripgrep fzf zoxide eza bat tmux
+sudo apt -y install zsh neovim ranger yazi fd ripgrep fzf zoxide eza bat tmux ncdu
+
+sudo snap install yazi --classic
 
 ---
 
