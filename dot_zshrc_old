@@ -1,8 +1,41 @@
+
 # Set up the prompt
 
-autoload -Uz promptinit
-promptinit
-prompt adam1
+#autoload -Uz promptinit
+#promptinit
+#prompt pure
+#prompt bigfade
+
+# Load colors
+autoload -U colors && colors
+
+# Icons (requires Nerd Fonts)
+GIT_BRANCH_ICON=""
+FOLDER_ICON=""
+CLOCK_ICON=""
+SEPARATOR_ICON="|"  # Could also be "" or "|"
+
+# Git info function
+git_prompt_info_custom() {
+  local branch
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --exact-match 2>/dev/null)
+    local dirty
+    if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
+      dirty="%F{red}*%f"
+    else
+      dirty="%F{green}✓%f"
+    fi
+    echo "%F{yellow}$GIT_BRANCH_ICON $branch%f$dirty"
+  fi
+}
+
+# Left prompt: Directory + Separator + Git info
+PROMPT='%F{blue}$FOLDER_ICON %B%F{cyan}%~%b%f %F{magenta}$SEPARATOR_ICON%f $(git_prompt_info_custom)
+%(?.%F{green}❯%f.%F{red}❯%f) '
+
+# Right prompt: Date (yellow), Time (green), Timezone (blue)
+RPROMPT='%F{magenta}$CLOCK_ICON %F{yellow}$(date +"%Y-%m-%d") %F{green}$(date +"%H:%M:%S") %F{blue}($(date +"%Z"))%f'
 
 setopt histignorealldups sharehistory
 
@@ -78,6 +111,9 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
+
 zinit snippet OMZ::plugins/git
 zinit snippet OMZ::plugins/history
 
@@ -96,11 +132,6 @@ zinit ice wait atload'_history_substring_search_config'
 
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
-
-# zinit ice as"command" from"gh-r" \
-#           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-#           atpull"%atclone" src"init.zsh"
-# zinit light starship/starship
 
 alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' --height 70% --layout reverse --border"
 
