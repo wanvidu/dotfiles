@@ -1,3 +1,5 @@
+# Ctrl + q - yazi 
+#
 # Ctrl + z - zoxide
 
 # Ctrl + x - clear screen
@@ -12,6 +14,9 @@
 # c - clear
 
 # prg - rigrep
+
+# <command> **<Tab> for following items. 
+# 	git, Get-Service, Start-Service, Stop-Service, Get-Process, Start-Process
 
 # History Path
 
@@ -49,9 +54,6 @@ Set-PsFzfOption -AltCCommand $commandOverride
 # Tab completion 
 Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 
-# <command> **<Tab> for following items. 
-# 	git, Get-Service, Start-Service, Stop-Service, Get-Process, Start-Process
-
 #---------------------------------------
 
 Set-Alias -Name c -Value clear
@@ -78,22 +80,21 @@ function which($name)
     Get-Command $name | Select-Object -ExpandProperty Definition
 }
 
-Set-PSReadLineKeyHandler -Chord Ctrl+z -ScriptBlock {
+Set-PSReadLineKeyHandler -Chord Ctrl+q -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('zi')
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('y')
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
-Set-PSReadLineKeyHandler -Chord Ctrl+x -ScriptBlock {
-    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('clear')
+Set-PSReadLineKeyHandler -Chord Ctrl+z -ScriptBlock {
+    __zoxide_zi
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
+
+Set-PSReadLineKeyHandler -Chord 'Ctrl+x' -Function ClearScreen
 
 # =============================================================================
 
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
-
-#Set-Alias -Name z -Value __zoxide_zi -Option AllScope -Scope Global -Force
 
 Invoke-Expression (&starship init powershell)
