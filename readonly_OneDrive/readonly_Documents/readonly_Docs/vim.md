@@ -6,6 +6,10 @@ Ctrl + up,down,left,right - change window size
 
 <A-j> / <A-k> - move line up, down
 
+Ctrl + q - visual block mode
+
+Ctrl + o - execute normal mode commands in insert mode
+
 <S-h> / [b - previous buffer
 <S-l> / ]b - next buffer
 <leader>bb / <leader>` - Switch to Other Buffer
@@ -195,6 +199,17 @@ n / N - next/previous match
 
 n / N - next/previous result
 
+:s/thee/the/ - Replace first match
+
+:s/thee/the/gi - With Confirmation
+
+:s/thee/the/gc - Case-Insensitive
+
+:s/thee/the/g - Replace all matches in line
+
+:%s/thee/the/g - Replace all matches
+
+
 FzfLua grep_curbuf
 
 ' - precise search
@@ -216,11 +231,11 @@ A to append to end then esc
 
 ## Find and replace		https://youtu.be/vjzp_IpD61Y?t=717	https://youtu.be/AuXZA-xCv04
 
-n <Space>xQ                 <Cmd>Trouble qflist toggle<CR> Quickfix List (Trouble)
-n <Space>xq                 callback        Quickfix List          ⋮LazyVim/lua/lazyvim/config/keymaps.lua:106
-n <Space>sq                 callback        Quickfix List          ⋮LazyVim/…/editor/snacks_picker.lua:104
-n ]q                        callback        Next Trouble/Quickfix Item   ⋮LazyVim/lua/lazyvim/plugins/editor.lua:229
-`n [q` 
+n <Space>xQ - <Cmd>Trouble qflist toggle<CR>
+n <Space>xq - callback   Quickfix List      
+n <Space>sq - callback   Quickfix List      
+n ]q        - callback   Next Trouble/Quickfix Item
+n [q 
  
 grep word
 <c-q>
@@ -866,7 +881,7 @@ kill %<num> - kill given precess
 
 ---
 
-sudo apt -y install zsh neovim ranger yazi fd ripgrep fzf zoxide eza bat tmux ncdu
+sudo apt -y install zsh neovim ranger yazi fd ripgrep fzf zoxide eza bat tmux gdu
 
 sudo snap install yazi --classic
 
