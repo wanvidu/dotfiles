@@ -135,6 +135,116 @@ AppsKey::{
   }
 }
 
+; ==============================
+; Premium Volume OSD (Smooth + Fade + Icons)
+; ==============================
+
+global CurrentVol := Round(SoundGetVolume())
+global AnimTimer := 0
+global FadeOutTimer := 0
+global IsVisible := false
+
+; Create OSD GUI
+global VolumeOSD := Gui("+AlwaysOnTop -Caption +ToolWindow")
+VolumeOSD.BackColor := "1E40AF"
+VolumeOSD.SetFont("s26 cWhite Bold", "Segoe UI")
+
+; Icon + Text
+global VolText := VolumeOSD.Add("Text", "Center +0x200 w300 h50")
+
+; Progress bar
+global VolBar := VolumeOSD.Add("Progress", "w300 h20 BackgroundBlack cWhite Range0-100")
+
+; Alt + Scroll Up → Volume Up
+!WheelUp::AdjustVolume(2)
+; Alt + Scroll Down → Volume Down
+!WheelDown::AdjustVolume(-2)
+
+AdjustVolume(Amount) {
+    global CurrentVol
+    newVol := Round(SoundGetVolume() + Amount)
+    newVol := Max(0, Min(100, newVol))
+    SoundSetVolume(newVol)
+    AnimateOSD(CurrentVol, newVol)
+    CurrentVol := newVol
+}
+
+AnimateOSD(oldVol, newVol) {
+    global AnimTimer
+    if (AnimTimer) {
+        SetTimer(AnimTimer, 0) ; Stop old animation
+    }
+    steps := 10
+    stepValue := (newVol - oldVol) / steps
+    i := 0
+    AnimTimer := (*) => (
+        i++,
+        UpdateOSD(Round(oldVol + stepValue * i)),
+        (i >= steps) ? SetTimer(AnimTimer, 0) : ""
+    )
+    SetTimer(AnimTimer, 15)
+}
+
+UpdateOSD(vol) {
+    global IsVisible, FadeOutTimer
+
+    ; Color
+    VolumeOSD.BackColor := (vol > 66) ? "22C55E" : (vol > 33) ? "FFA500" : "EF4444"
+
+    ; Icon
+    icon := (vol = 0) ? "🔇" : (vol <= 33) ? "🔈" : (vol <= 66) ? "🔉" : "🔊"
+
+    VolText.Value := icon " " vol "%"
+    VolBar.Value := vol
+
+    ; Show instantly if already visible, else fade-in
+    VolumeOSD.Show("AutoSize NoActivate")
+    x := y := w := h := 0
+    WinGetPos &x, &y, &w, &h, VolumeOSD.Hwnd
+    gx := Round((A_ScreenWidth - w) / 2)
+    gy := Round(A_ScreenHeight * 0.8 - h / 2)
+    VolumeOSD.Move(gx, gy)
+    ApplyRoundedCorners(VolumeOSD.Hwnd, w, h, 20)
+
+    if (!IsVisible) {
+        FadeWindow(VolumeOSD.Hwnd, 0, 255, 200)  ; First time fade-in
+        IsVisible := true
+    }
+
+    ; Reset fade-out timer
+    if (FadeOutTimer) {
+        SetTimer(FadeOutTimer, 0)  ; Stop old fade-out
+    }
+    FadeOutTimer := (*) => FadeOut()
+    SetTimer(FadeOutTimer, -1500) ; Restart fade-out delay
+}
+
+FadeOut() {
+    global IsVisible
+    FadeWindow(VolumeOSD.Hwnd, 255, 0, 200)
+    IsVisible := false
+}
+
+; ===== Helper: Rounded Corners =====
+ApplyRoundedCorners(hwnd, w, h, r) {
+    hRgn := DllCall("CreateRoundRectRgn", "int", 0, "int", 0, "int", w, "int", h, "int", r, "int", r, "ptr")
+    DllCall("SetWindowRgn", "ptr", hwnd, "ptr", hRgn, "int", true)
+}
+
+; ===== Helper: Fade Effect =====
+FadeWindow(hwnd, start, end, duration) {
+    steps := 20
+    diff := (end - start) / steps
+    i := 0
+    SetTimer(() => (
+        i++,
+        DllCall("SetLayeredWindowAttributes", "ptr", hwnd, "uint", 0, "uchar", Round(start + diff * i), "uint", 2),
+        (i >= steps) ? SetTimer(, 0) : ""
+    ), duration / steps)
+    WinSetTransparent start, hwnd
+    WinSetExStyle "+0x80000", hwnd ; WS_EX_LAYERED
+}
+
 ; --- Function to manually encode a string for a URL using StrReplace ---
 UrlEncode(TextToEncode) {
     ; Start by replacing the percent sign itself to avoid issues with later replacements.

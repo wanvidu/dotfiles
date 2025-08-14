@@ -1083,6 +1083,8 @@ eval "$(ssh-agent -s)"
 
 ssh-add ~/.ssh/id_ed25519
 
+# Nginx
+
 sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
 
 sudo nginx -t
@@ -1090,6 +1092,10 @@ sudo nginx -t
 sudo systemctl reload nginx
 
 sudo certbot --nginx -d example.com -d <www.example.com>
+
+---
+
+# PHP
 
 composer install
 /usr/bin/php8.1 /usr/bin/composer install
@@ -1114,46 +1120,11 @@ sudo chmod -R g+s /var/www/html/foodpoint_server/storage/
 
 ---
 
-# NVchad
+# journalctl 
 
-In edit mode
-	Ctrl + b - move beginning of line
-	Ctrl + e - move end of line
-	Ctrl + h,j,k,l - move cursor around
-	
-In edit mode
-	Ctrl + h,j,k,l - move around panes
-	Ctrl + s - general save file
-	Ctrl + c - general copy whole file
+journalctl --list-boots
 
-<leader>fm - general format file"
+journalctl -p 3 -xb-1
 
-<tab> / <S-tab> - switch between buffers
+journalctl -p 3 -xb-1 -n -200 --no-pager
 
-x - close buffer
-
-`<leader>/`- toggle comment
-
-`<C-n>` - nvimtree toggle window
-`<leader>e` - nvimtree focus window
-
-`<leader>fz` - telescope find in current buffer
-`<leader>ff` - telescope find files
-`<leader>fa` - telescope find all files
-
-`<leader>fw` - telescope live grep
-`<leader>fo` - telescope find oldfiles
-
-`<leader>h` - terminal new horizontal term
-
-`<A-h>` - terminal toggleable horizontal term
-
-`<A-i>` - terminal toggle floating term
-
-<leader>th - telescope nvchad themes
-
-! - View posiable motion list
-
-theme - gatekeeper
-
----
