@@ -143,6 +143,11 @@ zinit ice wait atload'_history_substring_search_config'
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
+# Run this to update default editor
+# sudo update-alternatives --config editor
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' --height 70% --layout reverse --border"
 
 alias ls='ls -lha --color'

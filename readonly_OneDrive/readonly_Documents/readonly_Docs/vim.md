@@ -881,7 +881,7 @@ kill %<num> - kill given precess
 
 ---
 
-sudo apt -y install zsh neovim ranger yazi fd ripgrep fzf zoxide eza bat tmux gdu
+sudo apt -y install zsh neovim ranger yazi fd ripgrep fzf zoxide eza bat tmux ncdu
 
 sudo snap install yazi --classic
 

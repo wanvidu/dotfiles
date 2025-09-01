@@ -24,8 +24,28 @@
 
 #----------------------------------------------
 
-Set-PSReadLineOption –HistoryNoDuplicates:$True
-Set-PSReadLineOption –MaximumHistoryCount:100000
+$PSReadLineOptions = @{
+    EditMode = 'Windows'
+    HistoryNoDuplicates = $true
+    MaximumHistoryCount  = 10000 
+    # Colors = @{
+    #     Command = '#87CEEB'  # SkyBlue (pastel)
+    #     Parameter = '#98FB98'  # PaleGreen (pastel)
+    #     Operator = '#FFB6C1'  # LightPink (pastel)
+    #     Variable = '#DDA0DD'  # Plum (pastel)
+    #     String = '#FFDAB9'  # PeachPuff (pastel)
+    #     Number = '#B0E0E6'  # PowderBlue (pastel)
+    #     Type = '#F0E68C'  # Khaki (pastel)
+    #     Comment = '#D3D3D3'  # LightGray (pastel)
+    #     Keyword = '#8367c7'  # Violet (pastel)
+    #     Error = '#FF6347'  # Tomato (keeping it close to red for visibility)
+    # }
+    PredictionSource = 'HistoryAndPlugin'
+    PredictionViewStyle = 'ListView'
+    BellStyle = 'None'
+}
+
+Set-PSReadLineOption @PSReadLineOptions
 
 # Reverse Search
 # Set-PSReadLineOption -HistorySearchCursorMovesToEnd
@@ -91,7 +111,26 @@ Set-PSReadLineKeyHandler -Chord Ctrl+z -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
-Set-PSReadLineKeyHandler -Chord 'Ctrl+x' -Function ClearScreen
+Set-PSReadLineKeyHandler -Chord Ctrl+x -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('clear')
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
+# Path to PSReadLine history
+$HistoryFile = (Get-PSReadLineOption).HistorySavePath
+
+# Define cleanup function
+function Cleanup-History {
+    if (Test-Path $HistoryFile) {
+        $lines  = Get-Content $HistoryFile
+        $unique = $lines | Select-Object -Unique
+        $unique | Set-Content $HistoryFile -Encoding UTF8
+    }
+}
+
+# Register cleanup on exit
+Register-EngineEvent PowerShell.Exiting -Action { Cleanup-History }
 
 # =============================================================================
 

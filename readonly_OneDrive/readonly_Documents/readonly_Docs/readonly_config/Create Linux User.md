@@ -40,6 +40,19 @@ sudo chmod -R g+rwx /var/www/html/foodpoint_server/storage/
 sudo chmod -R g+s /var/www/html/foodpoint_server/storage/
 ```
 
+# If everything else failed try this command
+```sh
+sudo chmod -R u+rwx,og+rx-w /var/www/html/foodpoint_server/storage/
+```
+
+```sh
+sudo chmod -R 660 /var/www/html/test.petdoc.lk/storage/oauth-public.key
+```
+
+```sh
+sudo chmod -R 660 /var/www/html/test.petdoc.lk/storage/oauth-private.key
+```
+
 ```sh
 sudo nano /etc/passwd       # Change “/bin/bash” to “/usr/bin/zsh”
 ```
