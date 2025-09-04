@@ -103,6 +103,14 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+function y_zle_widget() {
+	y
+	zle redisplay
+}
+zle -N y_zle_widget
+stty -ixon
+bindkey '^q' y_zle_widget
+
 zoxide-interactive-select() {
   __zoxide_zi
   zle reset-prompt

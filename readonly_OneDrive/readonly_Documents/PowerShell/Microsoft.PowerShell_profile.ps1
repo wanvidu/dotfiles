@@ -134,6 +134,6 @@ Register-EngineEvent PowerShell.Exiting -Action { Cleanup-History }
 
 # =============================================================================
 
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
-
 Invoke-Expression (&starship init powershell)
+
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
