@@ -22,6 +22,10 @@
 
 # C:\Users\wanvi\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 
+# Find Files
+
+# gci . -filter *.png -file -ea silent -recurse
+
 #----------------------------------------------
 
 $PSReadLineOptions = @{
@@ -135,5 +139,8 @@ Register-EngineEvent PowerShell.Exiting -Action { Cleanup-History }
 # =============================================================================
 
 Invoke-Expression (&starship init powershell)
+
+# https://pixi.sh/latest/installation/
+(& pixi completion --shell powershell) | Out-String | Invoke-Expression
 
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
