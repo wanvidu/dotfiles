@@ -103,19 +103,13 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-function y_zle_widget() {
-	y
-	zle redisplay
-}
-zle -N y_zle_widget
 stty -ixon
-bindkey '^q' y_zle_widget
+bindkey -s '^Q' 'y\n'
 
 zoxide-interactive-select() {
   __zoxide_zi
   zle reset-prompt
 }
-
 zle -N zoxide-interactive-select
 bindkey '^Z' zoxide-interactive-select
 
@@ -125,8 +119,6 @@ clear-screen-and-redisplay() {
 }
 zle -N clear-screen-and-redisplay
 bindkey '^X' clear-screen-and-redisplay
-
-# bindkey -s '^x' 'clear ^M' 
 
 # zinit ice as"command" from"gh-r" \
 #           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
@@ -153,3 +145,6 @@ eval "$(zoxide init zsh)"
 
 eval "$(starship init zsh)"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

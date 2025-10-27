@@ -29,7 +29,8 @@ SwitchApps(keyName)
 }
 
 ; Select text and press Insert to search google using Firefox 
-Insert::
+; Insert::
+Volume_Mute::
 {
     SearchWith('firefox.exe', "https://google.com/search?q=")
 }
@@ -95,20 +96,20 @@ SearchWith(AppName, BaseUrl)
 }
 
 ; Toggle app switch
-Volume_Mute::
-{
-  Global toggleAppSwitchMode 
-  toggleAppSwitchMode := !toggleAppSwitchMode
-	
-	if(toggleAppSwitchMode)
-  {
-	  TrayTip "App Switch Shortcut", "Switch between all apps enabled"
-	}
-	else
-	{
-	  TrayTip "App Switch Shortcut", "Switch between windows of the same app enabled"
-	}
-}
+; Volume_Mute::
+; {
+;   Global toggleAppSwitchMode 
+;   toggleAppSwitchMode := !toggleAppSwitchMode
+;
+; 	if(toggleAppSwitchMode)
+;   {
+; 	  TrayTip "App Switch Shortcut", "Switch between all apps enabled"
+; 	}
+; 	else
+; 	{
+; 	  TrayTip "App Switch Shortcut", "Switch between windows of the same app enabled"
+; 	}
+; }
 
 ; Right Click Key
 AppsKey::{
