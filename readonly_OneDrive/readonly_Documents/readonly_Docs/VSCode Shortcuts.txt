@@ -54,6 +54,7 @@ No prefix: - Go to File
 Ctrl + F - Find
 Ctrl + H - Replace
 F3 / Shift + F3 - Find next/previous
+F4 / Shift + F4 - Find next/previous
 Alt + Enter - Select all occurrences of Find match
 Ctrl + D - Add selection to next Find match
 Ctrl + U - Undo selection

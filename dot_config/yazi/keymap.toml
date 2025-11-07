@@ -6,14 +6,13 @@ append_keymap = [
 	# { on = [ "g", "o" ],       run = "cd C:/Users/wanvi/OneDrive/Documents",   desc = "Goto ~/Documents" },
 	# { on = [ "g", "e" ],       run = "cd C:/dev",   desc = "Goto ~/Dev" },
 
-	{ on = [ "g", "o" ],       run = "cd ~/Documents",   desc = "Goto ~/Documents" },
-	{ on = [ "g", "e" ],       run = "cd ~/dev",   desc = "Goto ~/Dev" },
-  { on = [ "g", "H" ],       run = "cd /home/whiz/",   desc = "Goto Home" },
-  { on = [ "g", "s" ],       run = "cd ~/.ssh/",   desc = "Goto SSH folder" },
-  { on = [ "g", "n" ],       run = "cd /etc/nginx/sites-available/",   desc = "Goto Nginx Sites" },
-  { on = [ "g", "w" ],       run = "cd /var/www/html/",   desc = "Goto html" },
+	{ on = [ "g", "o" ],       run = "cd /mnt/c/Users/wanvi/OneDrive/Documents",   desc = "Goto Documents" },
+	{ on = [ "g", "u" ],       run = "cd /mnt/c/Users/wanvi/Downloads",   desc = "Goto Downloads" },
+	{ on = [ "g", "e" ],       run = "cd /mnt/c/dev",   desc = "Goto Dev" },
+	{ on = [ "g", "w" ],       run = "cd /mnt/c/Users/wanvi",   desc = "Goto Windows Home" },
+        { on = [ "g", "s" ],       run = "cd ~/.ssh/",   desc = "Goto SSH folder" },
 
-  { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
+        { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
   
 	{ on = [ "C", "a"],   run = "plugin compress ", desc = "Archive selected files" },
 	{ on = [ "C", "c" ],   run = "plugin ouch -- zip", desc = "Compress with ouch" },	
@@ -28,5 +27,5 @@ append_keymap = [
 	{ on = [ "R", "p", "L" ], run = "plugin sudo -- hardlink",  desc = "sudo hardlink" },
 	{ on = [ "R", "a" ], run = "plugin sudo -- create",  desc = "sudo create" },
 	{ on = [ "R", "d" ], run = "plugin sudo -- remove",  desc = "sudo trash" },
-  { on = [ "R", "D" ], run = "plugin sudo -- remove --permanently",  desc = "sudo delete  permanently" },
+        { on = [ "R", "D" ], run = "plugin sudo -- remove --permanently",  desc = "sudo delete  permanently" },
 ]

@@ -5,10 +5,21 @@
 # alt + c - search folders
 # ctrl + z - zoxide 
 # ctrl + x - clear screen 
+# ctrl + q - yazi 
+# kill -9 **<TAB> - search with fzf | Default to a file picker
+# ssh **<TAB> - Fuzzy search hosts from SSH config, known hosts, and /etc/hosts
+# unset **<TAB> - Unset an environment variable with fzf
+# env | fzf 
 
 # Notes
 # * Run 'zinit cclear' on any zinit error
 #
+
+# fuzzy-sys --status - Show the status of any service
+# fuzzy-sys - 
+# fuzzy-sys -u - work with --user services
+# fuzzy-sys --edit - systemctl edit --full
+# fuzzy-sys --journal - journalctl -f -u
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -90,6 +101,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
+zinit light NullSense/fuzzy-sys
 
 zinit ice lucid wait'0'
 zinit light joshskidmore/zsh-fzf-history-search
@@ -143,8 +155,22 @@ alias c='clear'
 
 eval "$(zoxide init zsh)"
 
-eval "$(starship init zsh)"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# opencode
+export PATH=/home/wanvi/.opencode/bin:$PATH
+
+# bun completions
+[ -s "/home/wanvi/.bun/_bun" ] && source "/home/wanvi/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+
+eval "$(starship init zsh)"
