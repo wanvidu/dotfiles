@@ -12,6 +12,7 @@ edit = [
 	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
 	{ run = 'open -a TextEdit "$@"', desc = "TextEdit", for = "macos" },
         { run = 'nvim "$@"', desc = "nvim",  block = true, for = "unix" },
+{ run = 'notepad.exe "$@"', desc = "notepad",  block = true, for = "unix" },
 	{ run = 'nano "$@"', desc = "nano",  block = true, for = "unix" },
 	{ run = 'gnome-text-editor "$@"', desc = "text-editer",  block = true, for = "unix" },
 ]
