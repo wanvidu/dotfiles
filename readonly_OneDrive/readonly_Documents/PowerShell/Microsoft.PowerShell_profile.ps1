@@ -144,3 +144,16 @@ Invoke-Expression (&starship init powershell)
 (& pixi completion --shell powershell) | Out-String | Invoke-Expression
 
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+# Play sound on command end
+# Save the Starship-defined prompt function
+$global:StarshipPrompt = $function:prompt
+
+function prompt {
+    # Play a soft WAV sound
+    $soundPath = "C:\Windows\Media\Windows Notify Calendar.wav"
+    (New-Object System.Media.SoundPlayer $soundPath).Play()
+
+    # Call the original Starship prompt
+    & $global:StarshipPrompt
+}
