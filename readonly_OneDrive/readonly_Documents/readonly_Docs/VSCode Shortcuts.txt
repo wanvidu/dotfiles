@@ -40,6 +40,16 @@ F12 - Go to reference
 
 ---
 
+Ctrl + i - Send to Agent
+
+Alt + ` - Start dictation in editor
+
+Ctrl + Alt + ` - Start dictation in terminal
+
+Ctrl + L - Start dictation in chat
+
+---
+
 # Command pallet shortcuts
 
 No prefix: - Go to File

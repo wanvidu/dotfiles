@@ -173,4 +173,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(atuin init zsh)"
 
+# Play sound after every command
+precmd() {
+    ( powershell.exe -c '(New-Object Media.SoundPlayer "C:\Windows\Media\Windows Notify Calendar.wav").PlaySync();' &>/dev/null & )
+}
+
+# Initialize starship
 eval "$(starship init zsh)"

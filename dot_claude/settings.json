@@ -31,7 +31,9 @@
       "Bash(awk:*)",
       "Bash(sort:*)",
       "Bash(uniq:*)",
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(temp_policylistresponse.cs)",
+      "Bash(mv:*)"
     ],
     "deny": [
       "Bash(rm -rf /)",
@@ -98,7 +100,6 @@
       "Bash(cat ~/.ssh/id_*)",
       "Bash(cat ~/.aws/credentials)",
       "Git",
-      "Bash(git:*)",
       "Bash(git clean:*)",
       "Bash(git push :* --force:*)",
       "Bash(git push :* -f:*)",
@@ -113,6 +114,7 @@
       "Bash(brew uninstall --force:*)"
     ],
     "ask": [
+      "Bash(git:*)",
       "Bash(pnpm:*)",
       "Bash(node:*)",
       "Bash(python:*)",
@@ -142,7 +144,8 @@
       "HTTP",
       "mcp__*",
       "Bash(rm:*)"
-    ]
+    ],
+    "defaultMode": "default"
   },
   "hooks": {
     "PreToolUse": [],
@@ -168,17 +171,6 @@
           }
         ]
       }
-    ],
-    "SubagentStop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "powershell -Command \"(New-Object Media.SoundPlayer C:\\Users\\wanvi\\.claude\\on-agent-complete.wav).PlaySync()\""
-          }
-        ]
-      }
     ]
   },
   "statusLine": {
@@ -188,8 +180,9 @@
   },
   "outputStyle": "Explanatory",
   "sandbox": {
-    "autoAllowBashIfSandboxed": true,
-    "enabled": true
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "model": "sonnet"
 }
