@@ -1,0 +1,22 @@
+#!/usr/bin/env pwsh
+# --- Temporary environment setup ---
+$env:ANTHROPIC_AUTH_TOKEN = "<Token>"
+$env:ANTHROPIC_BASE_URL = "https://api.z.ai/api/anthropic"
+$env:API_TIMEOUT_MS = "3000000"
+
+$env:ANTHROPIC_DEFAULT_HAIKU_MODEL= "glm-4.7"
+$env:ANTHROPIC_DEFAULT_SONNET_MODEL= "glm-4.7"
+$env:ANTHROPIC_DEFAULT_OPUS_MODEL= "glm-4.7"
+
+# --- Launch Claude ---
+# Replace this line with your actual Claude command
+claude @args
+
+# --- Cleanup after exit ---
+Remove-Item Env:ANTHROPIC_AUTH_TOKEN -ErrorAction SilentlyContinue
+Remove-Item Env:ANTHROPIC_BASE_URL -ErrorAction SilentlyContinue
+Remove-Item Env:API_TIMEOUT_MS -ErrorAction SilentlyContinue
+
+Remove-Item Env:ANTHROPIC_DEFAULT_HAIKU_MODEL -ErrorAction SilentlyContinue
+Remove-Item Env:ANTHROPIC_DEFAULT_SONNET_MODEL -ErrorAction SilentlyContinue
+Remove-Item Env:ANTHROPIC_DEFAULT_OPUS_MODEL -ErrorAction SilentlyContinue
