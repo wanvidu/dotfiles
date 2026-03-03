@@ -1112,11 +1112,15 @@ php artisan view:clear
 php artisan route:clear
 composer dump-autoload
 
-sudo chown -R whiz:vpsusers /var/www/html/foodpoint_server/storage/
+sudo find . -type f -exec chmod 644 {} \;
+sudo find . -type d -exec chmod 755 {} \;
 
-sudo chmod -R g+rwx /var/www/html/foodpoint_server/storage/
+sudo chmod -R 2775 storage/app storage/framework storage/logs bootstrap/cache
 
-sudo chmod -R g+s /var/www/html/foodpoint_server/storage/
+sudo chown -R whiz:vpsusers storage/app storage/framework storage/logs bootstrap/cache
+
+sudo chmod -R 660 storage/oauth-public.key
+sudo chmod -R 660 storage/oauth-private.key 
 
 ---
 

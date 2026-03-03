@@ -1,0 +1,22 @@
+{
+  "sound": true,
+  "notification": false,
+  "timeout": 5,
+  "showProjectName": true,
+  "showIcon": true,
+  "notificationSystem": "osascript",
+  "events": {
+    "permission": { "sound": true, "notification": false },
+    "complete": { "sound": true, "notification": false },
+    "subagent_complete": { "sound": false, "notification": false },
+    "error": { "sound": true, "notification": false },
+    "question": { "sound": true, "notification": false }
+  },
+  "sounds": {
+    "permission": "C:/Users/wanvi/.claude/on-agent-need-attention.wav",
+    "complete": "C:/Users/wanvi/.claude/on-agent-complete.wav",
+    "subagent_complete": null,
+    "error": "C:/Users/wanvi/.claude/on-agent-need-attention.wav",
+    "question": "C:/Users/wanvi/.claude/on-agent-need-attention.wav"
+  }
+}

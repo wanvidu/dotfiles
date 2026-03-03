@@ -82,6 +82,8 @@ Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 
 Set-Alias -Name c -Value clear
 
+Set-Alias -Name zai -Value "C:\Users\wanvi\scripts\zai-claude.ps1"
+
 #---------------------------------------
 
 # rigrep file content
