@@ -28,37 +28,64 @@
 
 #----------------------------------------------
 
-$PSReadLineOptions = @{
-    EditMode = 'Windows'
-    HistoryNoDuplicates = $true
-    MaximumHistoryCount  = 10000 
-    # Colors = @{
-    #     Command = '#87CEEB'  # SkyBlue (pastel)
-    #     Parameter = '#98FB98'  # PaleGreen (pastel)
-    #     Operator = '#FFB6C1'  # LightPink (pastel)
-    #     Variable = '#DDA0DD'  # Plum (pastel)
-    #     String = '#FFDAB9'  # PeachPuff (pastel)
-    #     Number = '#B0E0E6'  # PowderBlue (pastel)
-    #     Type = '#F0E68C'  # Khaki (pastel)
-    #     Comment = '#D3D3D3'  # LightGray (pastel)
-    #     Keyword = '#8367c7'  # Violet (pastel)
-    #     Error = '#FF6347'  # Tomato (keeping it close to red for visibility)
-    # }
-    PredictionSource = 'HistoryAndPlugin'
-    PredictionViewStyle = 'ListView'
-    BellStyle = 'None'
+# $PSReadLineOptionsplicates = $true
+#     MaximumHistoryCount  = 10000 
+#     # Colors = @{
+#     #     Command = '#87CEEB'  # SkyBlue (pastel)
+#     #     Parameter = '#98FB98'  # PaleGreen (pastel)
+#     #     Operator = '#FFB6C1'  # LightPink (pastel)
+#     #     Variable = '#DDA0DD'  # Plum (pastel)
+#     #     String = '#FFDAB9'  # PeachPuff (pastel)
+#     #     Number = '#B0E0E6'  # PowderBlue (pastel)
+#     #     Type = '#F0E68C'  # Khaki (pastel)
+#     #     Comment = '#D3D3D3'  # LightGray (pastel)
+#     #     Keyword = '#8367c7'  # Violet (pastel)
+#     #     Error = '#FF6347'  # Tomato (keeping it close to red for visibility)
+#     # }
+#     PredictionSource = 'HistoryAndPlugin'
+#     PredictionViewStyle = 'ListView'
+#     BellStyle = 'None'
+# }
+#
+# Set-PSReadLineOption @PSReadLineOptions
+#
+# # Reverse Search
+# # Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+# Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+# Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+#
+# Set-PSReadLineKeyHandler -Chord "Alt+f" -Function ForwardWord
+
+if (Get-Command Set-PSReadLineOption -ErrorAction SilentlyContinue) {
+    $PSReadLineOptions = @{
+        EditMode            = 'Windows'
+        HistoryNoDuplicates = $true
+        MaximumHistoryCount = 10000
+        BellStyle           = 'None'
+    }
+
+    $canUsePrediction = $false
+    try {
+        $canUsePrediction =
+            $Host.UI.SupportsVirtualTerminal -and
+            -not [Console]::IsOutputRedirected
+    }
+    catch {
+        $canUsePrediction = $false
+    }
+
+    if ($canUsePrediction) {
+        $PSReadLineOptions.PredictionSource    = 'HistoryAndPlugin'
+        $PSReadLineOptions.PredictionViewStyle = 'ListView'
+    }
+
+    Set-PSReadLineOption @PSReadLineOptions
+
+    # Reverse search
+    Set-PSReadLineKeyHandler -Key UpArrow   -Function HistorySearchBackward
+    Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+    Set-PSReadLineKeyHandler -Chord "Alt+f" -Function ForwardWord
 }
-
-Set-PSReadLineOption @PSReadLineOptions
-
-# Reverse Search
-# Set-PSReadLineOption -HistorySearchCursorMovesToEnd
-Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-
-Set-PSReadLineKeyHandler -Chord "Alt+f" -Function ForwardWord
-
-Set-PSReadLineOption -PredictionViewStyle ListView
 
 # $ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
 
@@ -124,19 +151,19 @@ Set-PSReadLineKeyHandler -Chord Ctrl+x -ScriptBlock {
 }
 
 # Path to PSReadLine history
-$HistoryFile = (Get-PSReadLineOption).HistorySavePath
+# $HistoryFile = (Get-PSReadLineOption).HistorySavePath
 
 # Define cleanup function
-function Cleanup-History {
-    if (Test-Path $HistoryFile) {
-        $lines  = Get-Content $HistoryFile
-        $unique = $lines | Select-Object -Unique
-        $unique | Set-Content $HistoryFile -Encoding UTF8
-    }
-}
+# function Cleanup-History {
+#     if (Test-Path $HistoryFile) {
+#         $lines  = Get-Content $HistoryFile
+#         $unique = $lines | Select-Object -Unique
+#         $unique | Set-Content $HistoryFile -Encoding UTF8
+#     }
+# }
 
 # Register cleanup on exit
-Register-EngineEvent PowerShell.Exiting -Action { Cleanup-History }
+# Register-EngineEvent PowerShell.Exiting -Action { Cleanup-History }
 
 # =============================================================================
 

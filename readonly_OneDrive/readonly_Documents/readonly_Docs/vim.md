@@ -891,7 +891,7 @@ sudo snap install yazi --classic
 
 brew update
 
-brew install rbenv
+brew install rbenv yazi zoxide bat eza fd fzf git tmux neovim jq lazygit 
 
 rbenv init
 
@@ -921,8 +921,22 @@ winget install CoreyButler.NVMforWindows 7zip.7zip AutoHotkey.AutoHotkey Git.Git
 				Atlassian.Sourcetree Zoom.Zoom.EXE ajeetdsouza.zoxide junegunn.fzf `
 				sharkdp.bat sxyazi.yazi twpayne.chezmoi Microsoft.VisualStudioCode `
 				Microsoft.Teams Microsoft.WindowsTerminal `
-				Devolutions.RemoteDesktopManager
+				Devolutions.RemoteDesktopManager psmux
 
+winget install  7zip.7zip `
+				Mozilla.Firefox Notepad++.Notepad++ RustDesk.RustDesk `
+				VideoLAN.VLC AntibodySoftware.WizTree `
+				SoftDeluxe.FreeDownloadManager Neovim.Neovim `
+				Nushell.Nushell PuTTY.PuTTY Starship.Starship Google.Chrome.EXE `
+				JetBrains.IntelliJIDEA.Community LibreWolf.LibreWolf Parsec.Parsec `
+				SoftMaker.FreeOffice.2024 Mobatek.MobaXterm Microsoft.PowerToys `
+				Microsoft.PowerShell Bruno.Bruno BurntSushi.ripgrep.MSVC `
+				GitHub.GitHubDesktop JesseDuffield.lazygit Postman.Postman `
+				Atlassian.Sourcetree Zoom.Zoom.EXE ajeetdsouza.zoxide junegunn.fzf `
+				sharkdp.bat sxyazi.yazi twpayne.chezmoi Microsoft.VisualStudioCode `
+				Microsoft.Teams Microsoft.WindowsTerminal `
+				Devolutions.RemoteDesktopManager psmux
+				
 ### Windows Programs
 
 flutter
@@ -1018,7 +1032,7 @@ sudo apt install -y eza
 
 
 
-sudo apt install jq poppler-utils fd-find ripgrep imagemagick -y
+sudo apt install 7zip jq poppler-utils fd-find ripgrep fzf zoxide imagemagick -y
 
 wget -qO yazi.zip https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-musl.zip
 
@@ -1067,6 +1081,22 @@ rm zellij.tar.gz
 ssh -t -t whiz@161.35.175.23 "w"
 
 ---
+
+sudo apt update && sudo apt dist-upgrade -y && sudo reboot
+
+sudo apt install nginx
+
+sudo ufw allow 'Nginx Full'
+sudo ufw allow 'OpenSSH'
+
+sudo ufw enable
+
+sudo ufw status
+
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+
+sudo systemctl disable --now snapd.socket snapd.service
+sudo systemctl mask snapd.socket snapd.service
 
 # Add new user
 * in root
@@ -1121,6 +1151,156 @@ sudo chown -R whiz:vpsusers storage/app storage/framework storage/logs bootstrap
 
 sudo chmod -R 660 storage/oauth-public.key
 sudo chmod -R 660 storage/oauth-private.key 
+
+---
+
+## MySQL
+
+sudo apt install mysql-server
+
+sudo systemctl status mysql
+sudo systemctl restart mysql
+
+sudo mysql_secure_installation
+
+sudo mysql
+
+sudo mysql -u root
+
+mysql -u root -p
+
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password';
+
+---
+
+CREATE USER 'user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' WITH GRANT OPTION;
+
+---
+
+CREATE USER 'user'@'%' IDENTIFIED WITH caching_sha2_password BY 'password';
+
+GRANT ALL PRIVILEGES ON _._ TO 'user'@'localhost' WITH GRANT OPTION;
+
+---
+
+GRANT ALL PRIVILEGES ON <db name>.\* TO 'user'@'localhost';
+
+FLUSH PRIVILEGES;
+
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+```bash
+[mysqld]
+# Basic identity
+server_id=101
+port=3306
+bind_address=0.0.0.0
+
+# Paths
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+pid-file=/var/run/mysqld/mysqld.pid
+
+# Character set
+character-set-server=utf8mb4
+collation-server=utf8mb4_0900_ai_ci
+
+# InnoDB
+default_storage_engine=InnoDB
+innodb_buffer_pool_size=12G
+innodb_buffer_pool_instances=8
+innodb_log_file_size=2G
+innodb_flush_method=O_DIRECT
+innodb_flush_log_at_trx_commit=1
+innodb_file_per_table=1
+
+# Connections
+max_connections=300
+max_allowed_packet=128M
+thread_cache_size=100
+table_open_cache=4000
+table_definition_cache=4000
+
+# Temp and sort
+tmp_table_size=128M
+max_heap_table_size=128M
+
+# Binary logging / PITR / replication
+log_bin=mysql-bin
+binlog_format=ROW
+binlog_expire_logs_seconds=604800
+sync_binlog=1
+
+# Relay log settings if replica later
+relay_log_recovery=ON
+
+# Slow query log
+slow_query_log=ON
+slow_query_log_file=/var/log/mysql/slow.log
+long_query_time=1
+min_examined_row_limit=100
+
+# Error logging
+log_error=/var/log/mysql/error.log
+
+# Performance Schema
+performance_schema=ON
+
+# Name resolution
+skip_name_resolve=ON
+```
+
+## SQL Allow Group By
+
+set global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+set session sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+---
+
+## Password less sudo
+
+### Log in to your server as the root user
+
+```sh
+sudo adduser whiz
+```
+
+```sh
+sudo usermod -aG sudo whiz
+```
+
+```sh
+sudo update-alternatives --config editor
+```
+
+```sh
+sudo visudo
+```
+
+```sh
+whiz ALL=(ALL) NOPASSWD:ALL
+```
+
+```sh
+sudo groupadd vpsusers
+```
+
+```sh
+sudo gpasswd -a www-data vpsusers
+```
+
+```sh
+sudo gpasswd -a whiz vpsusers
+```
+
+```sh
+chown -R :vpsusers /var/www/html/
+```
 
 ---
 

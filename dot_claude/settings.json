@@ -148,8 +148,6 @@
     "defaultMode": "default"
   },
   "hooks": {
-    "PreToolUse": [],
-    "PostToolUse": [],
     "Notification": [
       {
         "matcher": "",

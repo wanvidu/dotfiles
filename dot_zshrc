@@ -94,7 +94,7 @@ zinit light-mode for \
 
 zinit snippet OMZ::plugins/git
 zinit snippet OMZ::plugins/history
-
+zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet PZT::modules/helper/init.zsh
 
 zinit light zsh-users/zsh-autosuggestions
@@ -132,13 +132,20 @@ clear-screen-and-redisplay() {
 zle -N clear-screen-and-redisplay
 bindkey '^X' clear-screen-and-redisplay
 
-# zinit ice as"command" from"gh-r" \
-#           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-#           atpull"%atclone" src"init.zsh"
-# zinit light starship/starship
+ranger_cd() {
+    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
+    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
+    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+        cd -- "$chosen_dir"
+    fi
+    rm -f -- "$temp_file"
+}
 
-alias x="zellij"
+alias r='ranger_cd'
 
+alias s='sudo -Es zsh' # type 'exit' to exit
+
+alias bat="batcat"
 alias cat="bat -p --paging=never"
 alias b="bat"
 
