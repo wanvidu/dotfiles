@@ -154,7 +154,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "powershell -Command \"(New-Object Media.SoundPlayer C:\\Users\\wanvi\\.claude\\on-agent-need-attention.wav).PlaySync()\""
+            "command": "pwsh -Command \"(New-Object Media.SoundPlayer C:\\Users\\wanvi\\.claude\\on-agent-need-attention.wav).PlaySync()\""
           }
         ]
       }
@@ -165,7 +165,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "powershell -Command \"(New-Object Media.SoundPlayer C:\\Users\\wanvi\\.claude\\on-agent-complete.wav).PlaySync()\""
+            "command": "pwsh -Command \"(New-Object Media.SoundPlayer C:\\Users\\wanvi\\.claude\\on-agent-complete.wav).PlaySync()\""
           }
         ]
       }
